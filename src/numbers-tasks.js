@@ -1,42 +1,10 @@
-/* *******************************************************************************************
- *                                                                                           *
- * Please read the following tutorial before implementing tasks:                              *
- * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Numbers_and_dates           *
- * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number   *
- * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math     *
- *                                                                                           *
- ******************************************************************************************* */
-
-/**
- * Returns an area of a rectangle given by width and height.
- *
- * @param {number} width
- * @param {number} height
- * @return {number}
- *
- * @example:
- *   5, 10 => 50
- *   5, 5  => 25
- */
-function getRectangleArea(/* width, height */) {
-  throw new Error('Not implemented');
+function getRectangleArea(a, b) {
+  return a * b;
 }
 
-/**
- * Returns a circumference of circle given by radius.
- *
- * @param {number} radius
- * @return {number}
- *
- * @example:
- *   5    => 31.41592653589793
- *   3.14 => 19.729201864543903
- *   0    => 0
- */
-function getCircleCircumference(/* radius */) {
-  throw new Error('Not implemented');
+function getCircleCircumference(a) {
+  return a * 2 * Math.PI;
 }
-
 /**
  * Returns an average of two given numbers.
  *
@@ -49,113 +17,29 @@ function getCircleCircumference(/* radius */) {
  *  10, 0  => 5
  *  -3, 3  => 0
  */
-function getAverage(/* value1, value2 */) {
-  throw new Error('Not implemented');
+function getAverage(a, b) {
+  return (a + b) / 2;
 }
 
-/**
- * Returns a distance between two points by cartesian coordinates.
- *
- * @param {number} x1
- * @param {number} y1
- * @param {number} x2
- * @param {number} y2
- *
- * @return {number}
- *
- * @example:
- *   (0,0) (0,1)    => 1
- *   (0,0) (1,0)    => 1
- *   (-5,0) (10,-10) => 18.027756377319946
- */
-function getDistanceBetweenPoints(/* x1, y1, x2, y2 */) {
-  throw new Error('Not implemented');
+function getDistanceBetweenPoints(x1, y1, x2, y2) {
+  return Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2);
+}
+function getLinearEquationRoot(a, b) {
+  return -b / a;
+}
+function getAngleBetweenVectors(x1, y1, x2, y2) {
+  return Math.acos(x1 * x2 + y1 * y2);
+}
+function getLastDigit(value) {
+  return value % 10;
 }
 
-/**
- * Returns a root of linear equation a*x + b = 0 given by coefficients a and b.
- *
- * @param {number} a
- * @param {number} b
- * @return {number}
- *
- * @example:
- *   5*x - 10 = 0    => 2
- *   x + 8 = 0       => -8
- *   5*x = 0         => 0
- */
-function getLinearEquationRoot(/* a, b */) {
-  throw new Error('Not implemented');
+function parseNumberFromString(value) {
+  const result = Number(value);
+  return result;
 }
-
-/**
- * Returns an angle (in radians) between two vectors given by xi and yi,
- * coordinates in Cartesian plane.
- * See details https://en.wikipedia.org/wiki/Euclidean_vector#Representations
- *
- * @param {number} x1
- * @param {number} y1
- * @param {number} x2
- * @param {number} y2
- * @return {number}
- *
- * @example:
- *   (1,0) (0,1)     => π/2
- *   (0,1) (0,-1)    => π
- *   (0,-1) (1,0)    => π/2
- *   (0,1) (0,1)     => 0
- */
-function getAngleBetweenVectors(/* x1, y1, x2, y2 */) {
-  throw new Error('Not implemented');
-}
-
-/**
- * Returns a last digit of a integer number.
- * The input parameter will always be greater than or equal to zero and will be in decimal notation.
- *
- * @param {number} value
- * @return {number}
- *
- * @example:
- *   100     => 0
- *    37     => 7
- *     5     => 5
- *     0     => 0
- */
-function getLastDigit(/* value */) {
-  throw new Error('Not implemented');
-}
-
-/**
- * Returns a number by given string representation.
- *
- * @param {string} value
- * @return {number}
- *
- * @example:
- *    '100'     => 100
- *     '37'     => 37
- * '-525.5'     => -525.5
- */
-function parseNumberFromString(/* value */) {
-  throw new Error('Not implemented');
-}
-
-/**
- * Returns a diagonal length of the rectangular parallelepiped given by its sides a,b,c.
- *
- * @param {number} a
- * @param {number} b
- * @param {number} c
- * @return {number}
- *
- * @example:
- *   1,1,1   => 1.7320508075688772
- *   3,3,3   => 5.196152422706632
- *   1,2,3   => 3.741657386773941
- */
-function getParallelepipedDiagonal(/* a, b, c */) {
-  throw new Error('Not implemented');
+function getParallelepipedDiagonal(a, b, c) {
+  return Math.sqrt(a ** 2 + b ** 2 + c ** 2);
 }
 
 /**
@@ -175,29 +59,14 @@ function getParallelepipedDiagonal(/* a, b, c */) {
  *   1678, 2  => 1700
  *   1678, 3  => 2000
  */
-function roundToPowerOfTen(/* num, pow */) {
-  throw new Error('Not implemented');
+function roundToPowerOfTen(num, pow) {
+  return num.toPrecision(pow);
 }
-
-/**
- * Returns true is the number is prime; otherwise false.
- * See: https://en.wikipedia.org/wiki/Primality_test
- *
- * @param {number} n
- * @return {bool}
- *
- * @example:
- *   4 => false
- *   5 => true
- *   6 => false
- *   7 => true
- *   11 => true
- *   12 => false
- *   16 => false
- *   17 => true
- */
-function isPrime(/* n */) {
-  throw new Error('Not implemented');
+function isPrime(n) {
+  for (let i = 2; i <= 10; i += 1) {
+    if (n % i === 0) return true;
+  }
+  return false;
 }
 
 /**
@@ -230,8 +99,8 @@ function toNumber(/* value, def */) {
  *   -2 => -8
  *   0  => 0
  */
-function getCube(/* num */) {
-  throw new Error('Not implemented');
+function getCube(num) {
+  return num ** 3;
 }
 
 /**
