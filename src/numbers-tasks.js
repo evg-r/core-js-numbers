@@ -84,21 +84,12 @@ function isPrime(n) {
  *   toNumber(42, 0) => 42
  *   toNumber(new Number(42), 0) => 42
  */
-function toNumber(/* value, def */) {
-  throw new Error('Not implemented');
+function toNumber(value, def) {
+  if (Number.isFinite(value) === 'true') {
+    return value;
+  }
+  return def;
 }
-
-/**
- * Returns the cube of the given number.
- *
- * @param {number} num
- * @return {number}
- *
- * @example:
- *   3  => 27
- *   -2 => -8
- *   0  => 0
- */
 function getCube(num) {
   return num ** 3;
 }
@@ -119,20 +110,12 @@ function getCube(num) {
 function getFibonacciNumber(/* index */) {
   throw new Error('Not implemented');
 }
-
-/**
- * Returns the sum of all numbers from 1 to n.
- *
- * @param {number} n
- * @return {number}
- *
- * @example:
- *   5  => 15 // (1+2+3+4+5)
- *   10 => 55 // (1+2+3+...+10)
- *   1  => 1
- */
-function getSumToN(/* n */) {
-  throw new Error('Not implemented');
+function getSumToN(n) {
+  let result = 0;
+  for (let i = 1; i <= n; i += 1) {
+    result += i;
+  }
+  return result;
 }
 
 /**
@@ -165,18 +148,8 @@ function isPowerOfTwo(/* num */) {
   throw new Error('Not implemented');
 }
 
-/**
- * Returns the sine of a number.
- *
- * @param {number} num
- * @return {number}
- *
- * @example:
- *   0 => 0
- *   Math.PI / 2 => 1
- */
-function getSine(/* num */) {
-  throw new Error('Not implemented');
+function getSine(num) {
+  return Math.sin(num);
 }
 
 /**
@@ -207,36 +180,11 @@ function numberToStringInBase(/* number, base */) {
 function toExponential(/* number, fractionDigits */) {
   throw new Error('Not implemented');
 }
-
-/**
- * Returns a string representation of a number in fixed-point notation.
- *
- * @param {number} number
- * @param {number} fractionDigits
- * @return {string}
- *
- * @example:
- * 12345, 2    => '12345.00'
- * 12.345, 1   => '12.3'
- */
-function toFixed(/* number, fractionDigits */) {
-  throw new Error('Not implemented');
+function toFixed(number, fractionDigits) {
+  return number.toFixed(fractionDigits);
 }
-
-/**
- * Returns a string representation of a number in normal (fixed-point or exponential)
- * notation rounded to precision significant digits.
- *
- * @param {number} number
- * @param {number} precision
- * @return {string}
- *
- * @example:
- * 12345, 7    => '12345.00'
- * 12.345, 4   => '12.35'
- */
-function toPrecision(/* number, precision */) {
-  throw new Error('Not implemented');
+function toPrecision(number, precision) {
+  return number.toPrecision(precision);
 }
 
 /**
@@ -249,8 +197,8 @@ function toPrecision(/* number, precision */) {
  * new Number(5) => 5
  * Number(-5)    => -5
  */
-function getNumberValue(/* number */) {
-  throw new Error('Not implemented');
+function getNumberValue(number) {
+  return valueOf(number);
 }
 
 /**
@@ -268,8 +216,8 @@ function getNumberValue(/* number */) {
  * 5        => true
  * '5'      => false
  */
-function isNumber(/* number */) {
-  throw new Error('Not implemented');
+function isNumber(number) {
+  return typeof number === 'number' && !number.isNaN(number);
 }
 
 /**
