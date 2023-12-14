@@ -187,18 +187,8 @@ function toPrecision(number, precision) {
   return number.toPrecision(precision);
 }
 
-/**
- * Returns the primitive value of a Number object.
- *
- * @param {Number} number
- * @return {number}
- *
- * @example:
- * new Number(5) => 5
- * Number(-5)    => -5
- */
 function getNumberValue(number) {
-  return valueOf(number);
+  return number.valueOf();
 }
 
 /**
@@ -217,7 +207,7 @@ function getNumberValue(number) {
  * '5'      => false
  */
 function isNumber(number) {
-  return typeof number === 'number' && !number.isNaN(number);
+  return Number.isFinite(number);
 }
 
 /**
@@ -356,36 +346,12 @@ function getSumOfNumbers(/* x1, x2, x3 */) {
   throw new Error('Not implemented');
 }
 
-/**
- * Returns the largest number.
- *
- * @param {number} firstNumber
- * @param {number} secondNumber
- * @return {number}
- *
- * @example:
- * 1, 2   => 2
- * -5, -6 => -5
- * 0, 5   => 5
- */
-function getMaxNumber(/* firstNumber, secondNumber */) {
-  throw new Error('Not implemented');
+function getMaxNumber(firstNumber, secondNumber) {
+  return Math.max(firstNumber, secondNumber);
 }
 
-/**
- * Returns a random integer in the range from min to max.
- *
- * @param {number} min
- * @param {number} max
- * @return {number}
- *
- * @example:
- * 1, 2  => 1 | 2
- * -5, 0 => -5 | -4 | -3 | -2 | -1 | 0
- * -1, 1 => -1 | 0 | 1
- */
-function getRandomInteger(/* min, max */) {
-  throw new Error('Not implemented');
+function getRandomInteger(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 /**
@@ -398,8 +364,8 @@ function getRandomInteger(/* min, max */) {
  * @example:
  * 3, 4 => 5
  */
-function getHypotenuse(/* a, b */) {
-  throw new Error('Not implemented');
+function getHypotenuse(a, b) {
+  return Math.hypot(a, b);
 }
 
 /**
